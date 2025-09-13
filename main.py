@@ -1,39 +1,28 @@
-from operations import * 
+from operations import *
 
 result = 0
+off = False
 
-a = int(input("Enter the first number:"))
-b = int(input("Enter the second number:"))
+result = float(input("1:: "))
 
-c = input("Select the number of the operation:\n" +
-                "+\n" +
-                "-\n" +
-                "*\n" +  
-                "/\n" +
-                "AC\n" +
-                "E:\t")
+while not off:
+    
+    op = input("2:: ")
+    
+    if op == operations[4]:
+        print(result)
+        continue
 
-while c != 'E' :
-    if c == '+' :
-        result = addition(a,b)
-    elif c == '-' :
-        result = subtraction(a,b)
-    elif c == '*' :
-        result = multiplication(a,b)
-    elif c == '/' :
-        result = division(a,b)
-    elif c == 'AC' :
-        result = 0
+    if op not in operations:
+        off = True
+        break
+    
+    nbr = float(input("3:: "))
+    result = expression(op, result, nbr)
     print(result)
-    c = input("Select the number of the operation:\n" +
-                "+\n" +
-                "-\n" +
-                "*\n" +  
-                "/\n" +
-                "AC\n" +
-                "E:\t")
-    a=result
-    b=int(input("Enter a number: "))
+    
+
+
 
 
 print("Thank you!")
